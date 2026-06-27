@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SocialIcons from "@/components/SocialIcons";
@@ -8,6 +9,11 @@ import SocialIcons from "@/components/SocialIcons";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  // On non-homepage pages there's no dark hero — always use scrolled (light bg) style
+  const isHome = pathname === "/";
+  const forceScrolled = !isHome;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -22,7 +28,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav id="navbar" className={scrolled ? "scrolled" : ""}>
+      <nav id="navbar" className={scrolled || forceScrolled ? "scrolled" : ""}>
         <div className="container">
           <div className="nav-inner">
             <Link href="/" className="nav-logo">
