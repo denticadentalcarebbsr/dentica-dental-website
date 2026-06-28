@@ -76,6 +76,7 @@ export async function POST(req: NextRequest) {
             name: data.name,
             service: data.service,
             preferred_window: data.preferred_window,
+            message: data.message,
           }),
         })
       : Promise.resolve({ data: null, error: null }),

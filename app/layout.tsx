@@ -23,27 +23,56 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.shortName}`,
   },
   description:
-    "Dentica – An Advanced Oral Care Centre in Bhubaneswar. Expert dental care by MDS specialists Dr. Sambarta Das (Endodontics) and Dr. Anand Garabadu (Orthodontics). Root canal, braces, implants, cosmetic dentistry.",
+    "Dentica – An Advanced Oral Care Centre in Bhubaneswar. Expert dental care by MDS specialists Dr. Sambarta Das (Endodontics) and Dr. Anand Garabadu (Orthodontics). Root canal, braces, implants, smile design.",
   keywords: [
     "dental clinic bhubaneswar",
     "dentist bhubaneswar",
     "root canal bhubaneswar",
     "orthodontist bhubaneswar",
     "dental implants bhubaneswar",
+    "clear aligners bhubaneswar",
+    "invisalign odisha",
+    "smile designing bhubaneswar",
     "Dentica",
     "MDS specialist odisha",
+    "best dentist saheed nagar",
   ],
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: "Dentica – Advanced Oral Care Centre | Bhubaneswar",
     description:
-      "Advanced dental care by MDS specialists in Bhubaneswar, Odisha. Book your appointment today.",
+      "Expert dental care by MDS specialists in Bhubaneswar. Root canal, orthodontics, clear aligners, implants & smile design. Book your appointment today.",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dentica – An Advanced Oral Care Centre, Bhubaneswar",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dentica – Advanced Oral Care Centre | Bhubaneswar",
+    description:
+      "Expert dental care by MDS specialists in Bhubaneswar. Root canal, orthodontics, clear aligners, implants & smile design.",
+    images: ["/images/og-image.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/favicon.png",
   },
   robots: { index: true, follow: true },
+  verification: {},
 };
 
 const jsonLd = {
