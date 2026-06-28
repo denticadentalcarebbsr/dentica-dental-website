@@ -93,7 +93,7 @@ export default function AdminLogin() {
         )}
 
         <p style={{ marginTop: 20, fontSize: ".78rem", color: "var(--gray-500)", textAlign: "center" }}>
-          Create your account in Supabase Dashboard → Authentication → Users
+          Use your Supabase account credentials (jayantarout79@gmail.com)
         </p>
       </div>
     </div>
