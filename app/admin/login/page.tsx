@@ -77,7 +77,7 @@ export default function AdminLogin() {
             <div className="form-group">
               <label className="form-label">Email Address</label>
               <input className="form-control" type="email" value={email}
-                onChange={e => setEmail(e.target.value)} placeholder="admin@dentica.in" required autoFocus />
+                onChange={e => setEmail(e.target.value)} placeholder="denticadentalcarebbsr@gmail.com" required autoFocus />
             </div>
             {mode === "password" && (
               <div className="form-group">

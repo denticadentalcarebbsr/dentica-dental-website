@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "An Advanced Oral Care Centre",
   phone: "+91 9777231262",
   phoneDisplay: "+91 97772 31262",
-  email: "info@dentica.in",
+  email: "denticadentalcarebbsr@gmail.com",
   address: {
     line1: "2nd Floor, Plot No. A-88, Saheed Nagar",
     city: "Bhubaneswar",
