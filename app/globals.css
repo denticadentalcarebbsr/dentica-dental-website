@@ -4,9 +4,10 @@
   --primary: #1B3A8B;
   --primary-dark: #122870;
   --primary-light: #2E57C8;
-  --accent: #2E7D32;
-  --accent-light: #43A047;
-  --cream: #F8F4EC;
+  --accent: #B6862C;
+  --accent-light: #D4A24C;
+  --accent-dark: #8C661E;
+  --cream: #F7F1E2;
   --white: #ffffff;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
@@ -1048,4 +1049,154 @@ footer { background: #060D2E; padding: 48px 0 24px; }
   .form-row { grid-template-columns: 1fr; }
   .admin-sidebar { display: none; }
   .admin-main { margin-left: 0; }
+}
+
+/* ── Premium Motion & Interaction Layer ── */
+
+/* Frosted-glass nav */
+#navbar.scrolled {
+  background: rgba(255,255,255,.82) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Hero Ken Burns + staggered entrance */
+.hero-bg-img { animation: heroZoom 20s ease-in-out infinite alternate; }
+@keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+@keyframes heroEnter { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.hero-badge    { animation: heroEnter .7s cubic-bezier(.4,0,.2,1) both; }
+.hero-title    { animation: heroEnter .7s cubic-bezier(.4,0,.2,1) .1s both; }
+.hero-desc     { animation: heroEnter .7s cubic-bezier(.4,0,.2,1) .2s both; }
+.hero-actions  { animation: heroEnter .7s cubic-bezier(.4,0,.2,1) .3s both; }
+.hero-stats    { animation: heroEnter .7s cubic-bezier(.4,0,.2,1) .45s both; }
+
+/* Button sheen */
+.btn-primary, .btn-accent { position: relative; overflow: hidden; }
+.btn-primary::after, .btn-accent::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+.btn-primary:hover::after, .btn-accent:hover::after { animation: sheen .9s ease; }
+@keyframes sheen { from { left: -75%; } to { left: 125%; } }
+.btn-accent:hover { box-shadow: 0 8px 25px rgba(182,134,44,.35); }
+
+/* Service card — gold border-glow + icon hover */
+.service-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.service-card:hover { box-shadow: var(--shadow-lg); border-color: transparent; }
+.service-card:hover::before { opacity: 1; }
+.service-card:hover .service-icon { background: var(--accent); color: #fff; transform: scale(1.08) rotate(-4deg); }
+.service-card:hover .service-title { color: var(--primary); }
+.service-card:hover .service-link { color: var(--accent-dark); }
+
+/* Doctor card hover */
+.doctor-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow var(--transition);
+}
+.doctor-card:hover { box-shadow: var(--shadow-lg); }
+
+/* Bento featured service card */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-auto-flow: dense;
+  gap: 28px;
+}
+.service-card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.service-card.featured .svc-circle { width: 200px; height: 200px; }
+.service-card.featured .svc-title { font-size: 1.5rem; }
+.service-card.featured .svc-desc { font-size: .95rem; max-width: 480px; }
+@media(max-width:900px) { .service-card.featured { grid-column: span 2; grid-row: span 1; } }
+@media(max-width:640px) { .service-card.featured { grid-column: span 1; grid-row: span 1; } }
+
+/* Featured testimonial */
+.testimonial-card.featured {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(180deg, #fff 0%, var(--cream) 120%);
+  box-shadow: var(--shadow);
+}
+.testimonial-card.featured .testimonial-text { font-size: 1.02rem; color: var(--gray-800); }
+
+/* FAQ grid-row interpolation accordion */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows .35s ease;
+}
+.faq-answer.open { grid-template-rows: 1fr; }
+.faq-answer-inner { min-height: 0; overflow: hidden; }
+
+/* WhatsApp FAB */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  z-index: 999;
+  animation: fabPulse 2.4s infinite;
+  cursor: pointer;
+}
+.whatsapp-fab svg { width: 26px; height: 26px; fill: #fff; }
+@keyframes fabPulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+  50% { box-shadow: 0 8px 24px rgba(37,211,102,.5); }
+}
+@media(max-width:640px) {
+  .whatsapp-fab { bottom: 88px; left: 20px; width: 50px; height: 50px; }
+}
+
+/* Reduced-motion safety net */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-img { animation: none; }
+  .hero-badge, .hero-title, .hero-desc, .hero-actions, .hero-stats {
+    animation: none; opacity: 1; transform: none;
+  }
+  .btn-primary::after, .btn-accent::after { display: none; }
+  .whatsapp-fab { animation: none; }
+  .service-card, .doctor-card { transform: none !important; }
+}
+@media (hover: none) {
+  .service-card, .doctor-card { transform: none !important; }
 }

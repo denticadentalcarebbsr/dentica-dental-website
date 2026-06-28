@@ -28,6 +28,7 @@ export const siteConfig = {
     instagram: "<INSTAGRAM_URL_TBD>",
     facebook: "<FACEBOOK_URL_TBD>",
   },
+  whatsapp: "919777231262",
   video: {
     clinicAd: "",
     drSambarta: "",

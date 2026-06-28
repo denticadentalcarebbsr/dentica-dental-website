@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+
 const testimonials = [
   {
     initials: "PR",
@@ -23,23 +25,27 @@ export default function Testimonials() {
   return (
     <section id="testimonials">
       <div className="container">
-        <div className="testimonials-header">
-          <div className="section-tag">What Patients Say</div>
-          <h2 className="section-title">Real Stories, Real Smiles</h2>
-        </div>
+        <Reveal>
+          <div className="testimonials-header">
+            <div className="section-tag">What Patients Say</div>
+            <h2 className="section-title">Real Stories, Real Smiles</h2>
+          </div>
+        </Reveal>
         <div className="testimonials-track">
-          {testimonials.map(t => (
-            <div key={t.name} className="testimonial-card">
-              <div className="stars">★★★★★</div>
-              <p className="testimonial-text">"{t.text}"</p>
-              <div className="testimonial-author">
-                <div className="author-avatar">{t.initials}</div>
-                <div>
-                  <div className="author-name">{t.name}</div>
-                  <div className="author-tag">{t.tag}</div>
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 100}>
+              <div className={`testimonial-card${i === 0 ? " featured" : ""}`}>
+                <div className="stars">★★★★★</div>
+                <p className="testimonial-text">"{t.text}"</p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">{t.initials}</div>
+                  <div>
+                    <div className="author-name">{t.name}</div>
+                    <div className="author-tag">{t.tag}</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

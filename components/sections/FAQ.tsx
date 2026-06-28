@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const faqs = [
   {
@@ -32,32 +33,36 @@ export default function FAQ() {
     <section id="faq">
       <div className="container">
         <div className="faq-grid">
-          <div>
-            <div className="section-tag">Have Questions?</div>
-            <h2 className="section-title">Frequently Asked Questions</h2>
-            <p className="section-subtitle">Everything you need to know before your visit at Dentica.</p>
-            <div style={{ marginTop: 32 }}>
-              <button className="btn btn-primary" onClick={() => document.getElementById("booking-section")?.scrollIntoView({ behavior: "smooth" })}>
-                Book a Consultation
-              </button>
+          <Reveal>
+            <div>
+              <div className="section-tag">Have Questions?</div>
+              <h2 className="section-title">Frequently Asked Questions</h2>
+              <p className="section-subtitle">Everything you need to know before your visit at Dentica.</p>
+              <div style={{ marginTop: 32 }}>
+                <button className="btn btn-primary" onClick={() => document.getElementById("booking-section")?.scrollIntoView({ behavior: "smooth" })}>
+                  Book a Consultation
+                </button>
+              </div>
             </div>
-          </div>
+          </Reveal>
           <div className="faq-list">
             {faqs.map((faq, i) => (
-              <div key={i} className="faq-item">
-                <button
-                  className={`faq-q ${open === i ? "active" : ""}`}
-                  onClick={() => setOpen(open === i ? null : i)}
-                >
-                  {faq.q}
-                  <svg className="chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                <div className={`faq-a ${open === i ? "open" : ""}`}>
-                  <div className="faq-a-inner">{faq.a}</div>
+              <Reveal key={i} delay={i * 60}>
+                <div className="faq-item">
+                  <button
+                    className={`faq-q ${open === i ? "active" : ""}`}
+                    onClick={() => setOpen(open === i ? null : i)}
+                  >
+                    {faq.q}
+                    <svg className="chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  <div className={`faq-answer${open === i ? " open" : ""}`}>
+                    <div className="faq-answer-inner faq-a-inner">{faq.a}</div>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

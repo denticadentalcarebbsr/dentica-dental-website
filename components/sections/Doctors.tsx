@@ -3,6 +3,8 @@
 import Image from "next/image";
 import VideoPlaceholder from "@/components/VideoPlaceholder";
 import { siteConfig } from "@/lib/site-config";
+import { Reveal } from "@/components/motion/Reveal";
+import { useCardTilt } from "@/lib/hooks/useCardTilt";
 
 const doctors = [
   {
@@ -27,54 +29,65 @@ const doctors = [
   },
 ];
 
-export default function Doctors() {
+function DoctorCard({ doc, delay }: { doc: typeof doctors[0]; delay: number }) {
+  const tiltRef = useCardTilt<HTMLDivElement>();
   const scrollToBooking = () =>
     document.getElementById("booking-section")?.scrollIntoView({ behavior: "smooth" });
   const scrollToContact = () =>
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
   return (
+    <Reveal delay={delay}>
+      <div ref={tiltRef} className="doctor-card">
+        <div className="doctor-photo">
+          <Image
+            src={doc.photo}
+            alt={doc.name}
+            width={600}
+            height={360}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
+            priority
+          />
+          <div className="doctor-badge">{doc.badge}</div>
+        </div>
+        <div className="doctor-info">
+          <div className="doctor-name">{doc.name}</div>
+          <div className="doctor-spec">{doc.spec}</div>
+          <p className="doctor-bio">{doc.bio}</p>
+          <div className="doctor-quals">
+            {doc.quals.map(q => <span key={q} className="qual-tag">{q}</span>)}
+          </div>
+          <VideoPlaceholder
+            videoId={siteConfig.video[doc.videoKey]}
+            title={`${doc.name} — Introduction`}
+            height="200px"
+          />
+          <div className="doctor-actions" style={{ marginTop: 20 }}>
+            <button className="btn btn-primary" onClick={scrollToBooking}>Book Appointment</button>
+            <button className="btn btn-outline" onClick={scrollToContact}>Contact</button>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
+export default function Doctors() {
+  return (
     <section id="doctors">
       <div className="container">
-        <div className="doctors-header">
-          <div className="section-tag">Our Specialists</div>
-          <h2 className="section-title">Meet Your Doctors</h2>
-          <p className="section-subtitle text-center">
-            Experienced, compassionate MDS specialists dedicated to delivering the highest standard of oral care.
-          </p>
-        </div>
+        <Reveal>
+          <div className="doctors-header">
+            <div className="section-tag">Our Specialists</div>
+            <h2 className="section-title">Meet Your Doctors</h2>
+            <p className="section-subtitle text-center">
+              Experienced, compassionate MDS specialists dedicated to delivering the highest standard of oral care.
+            </p>
+          </div>
+        </Reveal>
         <div className="doctors-grid">
-          {doctors.map((doc) => (
-            <div key={doc.id} className="doctor-card">
-              <div className="doctor-photo">
-                <Image
-                  src={doc.photo}
-                  alt={doc.name}
-                  width={600}
-                  height={360}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
-                  priority
-                />
-                <div className="doctor-badge">{doc.badge}</div>
-              </div>
-              <div className="doctor-info">
-                <div className="doctor-name">{doc.name}</div>
-                <div className="doctor-spec">{doc.spec}</div>
-                <p className="doctor-bio">{doc.bio}</p>
-                <div className="doctor-quals">
-                  {doc.quals.map(q => <span key={q} className="qual-tag">{q}</span>)}
-                </div>
-                <VideoPlaceholder
-                  videoId={siteConfig.video[doc.videoKey]}
-                  title={`${doc.name} — Introduction`}
-                  height="200px"
-                />
-                <div className="doctor-actions" style={{ marginTop: 20 }}>
-                  <button className="btn btn-primary" onClick={scrollToBooking}>Book Appointment</button>
-                  <button className="btn btn-outline" onClick={scrollToContact}>Contact</button>
-                </div>
-              </div>
-            </div>
+          {doctors.map((doc, i) => (
+            <DoctorCard key={doc.id} doc={doc} delay={i * 120} />
           ))}
         </div>
       </div>

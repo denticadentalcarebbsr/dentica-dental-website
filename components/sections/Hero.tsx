@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CountUp } from "@/components/motion/CountUp";
 
 export default function Hero() {
   const scrollTo = (id: string) =>
@@ -13,6 +14,7 @@ export default function Hero() {
           src="/images/hero-bg.png"
           alt="Dentica Clinic Interior"
           fill
+          className="hero-bg-img"
           style={{ objectFit: "cover", objectPosition: "center" }}
           priority
           quality={90}
@@ -40,10 +42,22 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-stats">
-        <div className="hero-stat"><span className="hero-stat-num">10+</span><span className="hero-stat-label">Years Experience</span></div>
-        <div className="hero-stat"><span className="hero-stat-num">5000+</span><span className="hero-stat-label">Happy Patients</span></div>
-        <div className="hero-stat"><span className="hero-stat-num">2 MDS</span><span className="hero-stat-label">Specialists</span></div>
-        <div className="hero-stat"><span className="hero-stat-num">98%</span><span className="hero-stat-label">Success Rate</span></div>
+        <div className="hero-stat">
+          <span className="hero-stat-num"><CountUp to={10} suffix="+" /></span>
+          <span className="hero-stat-label">Years Experience</span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-num"><CountUp to={5000} suffix="+" /></span>
+          <span className="hero-stat-label">Happy Patients</span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-num">2 MDS</span>
+          <span className="hero-stat-label">Specialists</span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-num"><CountUp to={98} suffix="%" /></span>
+          <span className="hero-stat-label">Success Rate</span>
+        </div>
       </div>
     </section>
   );

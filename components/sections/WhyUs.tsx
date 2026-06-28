@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
 
 const points = [
   {
@@ -28,37 +29,43 @@ export default function WhyUs() {
     <section id="why-us">
       <div className="container">
         <div className="why-grid">
-          <div className="why-img" style={{ position: "relative" }}>
-            <div style={{ width: "100%", height: 460, borderRadius: "var(--radius-lg)", overflow: "hidden", position: "relative" }}>
-              <Image
-                src="/images/clinic-interior.png"
-                alt="Dentica Clinic Interior"
-                fill
-                style={{ objectFit: "cover", objectPosition: "center" }}
-                quality={90}
-              />
+          <Reveal>
+            <div className="why-img" style={{ position: "relative" }}>
+              <div style={{ width: "100%", height: 460, borderRadius: "var(--radius-lg)", overflow: "hidden", position: "relative" }}>
+                <Image
+                  src="/images/clinic-interior.png"
+                  alt="Dentica Clinic Interior"
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  quality={90}
+                />
+              </div>
+              <div className="why-badge-float">
+                <strong>5000+</strong>
+                <span>Smiles Transformed</span>
+              </div>
             </div>
-            <div className="why-badge-float">
-              <strong>5000+</strong>
-              <span>Smiles Transformed</span>
-            </div>
-          </div>
+          </Reveal>
 
           <div className="why-content">
-            <div className="section-tag">Why Choose Dentica</div>
-            <h2 className="section-title">Where Expertise Meets Compassion</h2>
-            <p className="section-subtitle">We combine cutting-edge technology with a patient-centred approach to deliver outcomes that last.</p>
+            <Reveal>
+              <div className="section-tag">Why Choose Dentica</div>
+              <h2 className="section-title">Where Expertise Meets Compassion</h2>
+              <p className="section-subtitle">We combine cutting-edge technology with a patient-centred approach to deliver outcomes that last.</p>
+            </Reveal>
             <div className="why-points">
-              {points.map(p => (
-                <div key={p.title} className="why-point">
-                  <div className="why-point-icon">
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">{p.icon}</svg>
+              {points.map((p, i) => (
+                <Reveal key={p.title} delay={i * 80}>
+                  <div className="why-point">
+                    <div className="why-point-icon">
+                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">{p.icon}</svg>
+                    </div>
+                    <div className="why-point-text">
+                      <strong>{p.title}</strong>
+                      <span>{p.desc}</span>
+                    </div>
                   </div>
-                  <div className="why-point-text">
-                    <strong>{p.title}</strong>
-                    <span>{p.desc}</span>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
