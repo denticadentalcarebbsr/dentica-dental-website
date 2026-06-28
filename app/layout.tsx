@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.jpg", type: "image/jpeg" },
     ],
-    apple: "/favicon.png",
+    apple: "/favicon.jpg",
   },
   robots: { index: true, follow: true },
   verification: {},
@@ -110,6 +110,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/favicon.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/favicon.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
