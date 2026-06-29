@@ -1165,7 +1165,7 @@ footer { background: #060D2E; padding: 48px 0 24px; }
 .whatsapp-fab {
   position: fixed;
   bottom: 32px;
-  left: 32px;
+  right: 32px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -1184,7 +1184,7 @@ footer { background: #060D2E; padding: 48px 0 24px; }
   50% { box-shadow: 0 8px 24px rgba(37,211,102,.5); }
 }
 @media(max-width:640px) {
-  .whatsapp-fab { bottom: 88px; left: 20px; width: 50px; height: 50px; }
+  .whatsapp-fab { bottom: 24px; right: 20px; width: 50px; height: 50px; }
 }
 
 /* Reduced-motion safety net */
