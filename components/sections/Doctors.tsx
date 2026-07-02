@@ -15,7 +15,7 @@ const doctors = [
     bio: "A passionate and dedicated root canal specialist with over 16 years of clinical and academic excellence. BDS from Chennai, Masters from Kolkata, with a strong foundation in advanced endodontic care and education. Currently serving as Professor and PG Guide, mentoring future dental professionals while delivering quality patient care with precision, compassion, and expertise.",
     quals: ["BDS (Chennai) · MDS Endodontics (Kolkata)", "Professor & PG Guide", "16+ Years Clinical & Academic Experience"],
     photo: "/images/doctors/sambarta.jpg",
-    objectPosition: "center top",
+    objectPosition: "center 60%",
     videoKey: "drSambarta" as const,
   },
   {
