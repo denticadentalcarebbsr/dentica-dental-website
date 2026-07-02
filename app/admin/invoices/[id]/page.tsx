@@ -134,7 +134,13 @@ export default function InvoiceDetailPage() {
         </div>
       </div>
 
-      <style>{`@media print { .admin-sidebar, .admin-main > *:not(#invoice-print) { display: none !important; } .admin-main { margin: 0 !important; padding: 0 !important; } }`}</style>
+      <style>{`
+        @media print {
+          body * { visibility: hidden; }
+          #invoice-print, #invoice-print * { visibility: visible; }
+          #invoice-print { position: fixed; top: 0; left: 0; width: 100%; padding: 32px 48px; box-shadow: none !important; border-radius: 0 !important; }
+        }
+      `}</style>
     </div>
   );
 }

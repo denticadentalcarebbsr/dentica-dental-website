@@ -58,13 +58,20 @@ export default function PatientsPage() {
             ) : patients.length === 0 ? (
               <tr><td colSpan={6} style={{ padding: 40, textAlign: "center", color: "var(--gray-400)" }}>No patients found</td></tr>
             ) : patients.map(p => (
-              <tr key={p.id} style={{ borderBottom: "1px solid var(--gray-100)" }}>
+              <tr key={p.id} style={{ borderBottom: "1px solid var(--gray-100)", cursor: "pointer" }}
+                onClick={() => window.location.href = `/admin/patients/${p.id}`}
+                onMouseEnter={e => (e.currentTarget.style.background = "var(--gray-50)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "")}
+              >
                 <td style={{ padding: "14px 16px", fontSize: ".85rem", fontWeight: 700, color: "var(--primary)" }}>{p.patient_id}</td>
-                <td style={{ padding: "14px 16px", fontSize: ".9rem", fontWeight: 600 }}>{p.name}</td>
+                <td style={{ padding: "14px 16px", fontSize: ".9rem", fontWeight: 600, color: "var(--primary)", textDecoration: "underline", textDecorationColor: "transparent" }}
+                  onMouseEnter={e => (e.currentTarget.style.textDecorationColor = "var(--primary)")}
+                  onMouseLeave={e => (e.currentTarget.style.textDecorationColor = "transparent")}
+                >{p.name}</td>
                 <td style={{ padding: "14px 16px", fontSize: ".85rem" }}>{p.phone}</td>
                 <td style={{ padding: "14px 16px", fontSize: ".85rem", textTransform: "capitalize" }}>{p.gender || "—"}</td>
                 <td style={{ padding: "14px 16px", fontSize: ".85rem" }}>{p.dob || "—"}</td>
-                <td style={{ padding: "14px 16px" }}>
+                <td style={{ padding: "14px 16px" }} onClick={e => e.stopPropagation()}>
                   <Link href={`/admin/invoices/new?patient=${p.id}`} style={{ fontSize: ".8rem", fontWeight: 600, color: "var(--accent-dark)", background: "rgba(182,134,44,.08)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(182,134,44,.2)", textDecoration: "none" }}>
                     + Invoice
                   </Link>
