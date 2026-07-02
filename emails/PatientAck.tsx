@@ -84,7 +84,7 @@ export default function PatientAck({ name, service, preferred_window, message }:
                   </td>
                   <td style={contactItem}>
                     <Text style={contactIcon}>🕐</Text>
-                    <Text style={contactText}>Mon–Sat: 9AM–7PM</Text>
+                    <Text style={contactText}>Mon–Sat: 5PM–9PM</Text>
                   </td>
                 </tr>
               </table>

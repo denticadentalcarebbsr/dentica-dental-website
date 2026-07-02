@@ -9,27 +9,29 @@ import { useCardTilt } from "@/lib/hooks/useCardTilt";
 const doctors = [
   {
     id: "sambarta",
-    name: "Dr. Sambarta Das",
+    name: "Prof.(Dr) Sambarta Das",
     spec: "MDS – Endodontics & Conservative Dentistry",
     badge: "Root Canal Specialist",
     bio: "A passionate and dedicated root canal specialist with over 16 years of clinical and academic excellence. BDS from Chennai, Masters from Kolkata, with a strong foundation in advanced endodontic care and education. Currently serving as Professor and PG Guide, mentoring future dental professionals while delivering quality patient care with precision, compassion, and expertise.",
     quals: ["BDS (Chennai) · MDS Endodontics (Kolkata)", "Professor & PG Guide", "16+ Years Clinical & Academic Experience"],
     photo: "/images/doctors/sambarta.jpg",
+    objectPosition: "center top",
     videoKey: "drSambarta" as const,
   },
   {
     id: "anand",
-    name: "Dr. Anand Garabadu",
+    name: "Prof.(Dr) Anand Garabadu",
     spec: "MDS – Orthodontics & Dentofacial Orthopaedics",
     badge: "Orthodontics & Clear Aligners",
     bio: "20 years of clinical experience and 16 years in academic teaching. Graduate and postgraduate training under Rajiv Gandhi University of Health Sciences. Currently serving as Professor and PG Guide. Has treated more than 2,500 orthodontic cases. First Invisalign-certified specialist in Odisha, with clear aligner expertise since 2017.",
     quals: ["BDS, MDS Orthodontics (RGUHS)", "2,500+ Orthodontic Cases", "First Invisalign-Certified in Odisha · Since 2017"],
     photo: "/images/doctors/anand.jpg",
+    objectPosition: "center 15%",
     videoKey: "drAnand" as const,
   },
 ];
 
-function DoctorCard({ doc, delay }: { doc: typeof doctors[0]; delay: number }) {
+function DoctorCard({ doc, delay }: { doc: (typeof doctors)[0]; delay: number }) {
   const tiltRef = useCardTilt<HTMLDivElement>();
   const scrollToBooking = () =>
     document.getElementById("booking-section")?.scrollIntoView({ behavior: "smooth" });
@@ -45,7 +47,7 @@ function DoctorCard({ doc, delay }: { doc: typeof doctors[0]; delay: number }) {
             alt={doc.name}
             width={600}
             height={360}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: doc.objectPosition }}
             priority
           />
           <div className="doctor-badge">{doc.badge}</div>

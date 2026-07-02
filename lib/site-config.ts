@@ -21,7 +21,7 @@ export const siteConfig = {
   mapsUrl:
     "https://www.google.com/maps/place/Dentica..An+advanced+oral+care+centre/@20.2953264,85.8459034,17z",
   hours: {
-    weekdays: "Mon–Sat: 9:00 AM – 1:00 PM & 2:00 PM – 7:00 PM",
+    weekdays: "Mon–Sat: 5:00 PM – 9:00 PM",
     weekend: "Sunday: Closed",
   },
   social: {

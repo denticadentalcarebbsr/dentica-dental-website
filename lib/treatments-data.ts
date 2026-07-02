@@ -54,10 +54,10 @@ export const tier1Treatments: Treatment[] = [
     shortName: "Root Canal",
     tagline: "Pain-free root canal treatment, completed in a single visit",
     description:
-      "Dr. Sambarta Das — Root Canal Specialist with 16+ years of experience — uses advanced rotary endodontics to complete your root canal in one comfortable sitting. No multiple trips, no prolonged discomfort.",
+      "Prof.(Dr) Sambarta Das — Root Canal Specialist with 16+ years of experience — uses advanced rotary endodontics to complete your root canal in one comfortable sitting. No multiple trips, no prolonged discomfort.",
     icon: "⚕",
     image: "/images/treatments/service-endo.png",
-    doctor: "Dr. Sambarta Das",
+    doctor: "Prof.(Dr) Sambarta Das",
     doctorSlug: "sambarta",
     whatItInvolves: [
       "Advanced local anaesthesia for complete comfort",
@@ -72,13 +72,13 @@ export const tier1Treatments: Treatment[] = [
       "Patients who want treatment completed quickly",
     ],
     faqs: [
-      { q: "Is root canal treatment painful?", a: "Modern root canal therapy performed by Dr. Sambarta Das is virtually painless. Advanced anaesthesia techniques ensure complete comfort throughout." },
+      { q: "Is root canal treatment painful?", a: "Modern root canal therapy performed by Prof.(Dr) Sambarta Das is virtually painless. Advanced anaesthesia techniques ensure complete comfort throughout." },
       { q: "Why single session?", a: "Single-session treatment with rotary endodontics reduces total chair time, lowers infection risk between visits, and gets you back to normal faster." },
       { q: "How long does it take?", a: "Most single-session root canals are completed in 60–90 minutes." },
       { q: "What happens after?", a: "A crown is usually placed over the treated tooth to protect it. Dr. Sambarta will discuss the best restoration option for you." },
     ],
-    metaTitle: "Single Session Root Canal Bhubaneswar | Dr. Sambarta Das | Dentica",
-    metaDescription: "Pain-free single-session root canal by Dr. Sambarta Das, Root Canal Specialist with 16+ years experience, at Dentica Bhubaneswar. Call +91 9777231262.",
+    metaTitle: "Single Session Root Canal Bhubaneswar | Prof.(Dr) Sambarta Das | Dentica",
+    metaDescription: "Pain-free single-session root canal by Prof.(Dr) Sambarta Das, Root Canal Specialist with 16+ years experience, at Dentica Bhubaneswar. Call +91 9777231262.",
     jsonLdName: "Root Canal Treatment",
   },
   {
@@ -87,10 +87,10 @@ export const tier1Treatments: Treatment[] = [
     shortName: "Orthodontics",
     tagline: "Perfectly aligned teeth with expert orthodontic treatment",
     description:
-      "Dr. Anand Garabadu — Professor, PG Guide, and orthodontist with 2,500+ cases treated — offers comprehensive orthodontic treatment including metal braces, ceramic braces, self-ligating braces, and lingual braces for all ages.",
+      "Prof.(Dr) Anand Garabadu — Professor, PG Guide, and orthodontist with 2,500+ cases treated — offers comprehensive orthodontic treatment including metal braces, ceramic braces, self-ligating braces, and lingual braces for all ages.",
     icon: "⚡",
     image: "/images/treatments/service-ortho.png",
-    doctor: "Dr. Anand Garabadu",
+    doctor: "Prof.(Dr) Anand Garabadu",
     doctorSlug: "anand",
     whatItInvolves: [
       "Comprehensive orthodontic assessment and treatment planning",
@@ -108,8 +108,8 @@ export const tier1Treatments: Treatment[] = [
       { q: "Is orthodontic treatment only for children?", a: "No — adults benefit just as much. We treat patients of all ages at Dentica." },
       { q: "What type of braces are best?", a: "It depends on your case, lifestyle, and preference. Dr. Anand will recommend the most suitable option after examination." },
     ],
-    metaTitle: "Orthodontic Treatment Bhubaneswar | Dr. Anand Garabadu | Dentica",
-    metaDescription: "Expert orthodontics by Dr. Anand Garabadu, 2,500+ cases treated, at Dentica Bhubaneswar. Braces for all ages — metal, ceramic, self-ligating, lingual. Book now.",
+    metaTitle: "Orthodontic Treatment Bhubaneswar | Prof.(Dr) Anand Garabadu | Dentica",
+    metaDescription: "Expert orthodontics by Prof.(Dr) Anand Garabadu, 2,500+ cases treated, at Dentica Bhubaneswar. Braces for all ages — metal, ceramic, self-ligating, lingual. Book now.",
     jsonLdName: "Orthodontic Treatment",
   },
   {
@@ -118,10 +118,10 @@ export const tier1Treatments: Treatment[] = [
     shortName: "Clear Aligners",
     tagline: "Invisible teeth straightening by Odisha's first Invisalign-certified specialist",
     description:
-      "Dr. Anand Garabadu — the first Invisalign-certified specialist in Odisha, with clear aligner expertise since 2017 — offers truly invisible teeth straightening that fits seamlessly into your life. No wires, no brackets.",
+      "Prof.(Dr) Anand Garabadu — the first Invisalign-certified specialist in Odisha, with clear aligner expertise since 2017 — offers truly invisible teeth straightening that fits seamlessly into your life. No wires, no brackets.",
     icon: "◈",
     image: "/images/treatments/clear-aligners.png",
-    doctor: "Dr. Anand Garabadu",
+    doctor: "Prof.(Dr) Anand Garabadu",
     doctorSlug: "anand",
     whatItInvolves: [
       "Digital 3D scan of your teeth (no messy impressions)",
@@ -142,8 +142,8 @@ export const tier1Treatments: Treatment[] = [
       { q: "Can I eat and drink with aligners in?", a: "Aligners should be removed before eating or drinking anything other than water." },
       { q: "Are they really invisible?", a: "Yes — most people won't notice you're wearing them. They're designed to be as transparent as possible." },
     ],
-    metaTitle: "Invisalign Clear Aligners Bhubaneswar | Dr. Anand Garabadu | Dentica",
-    metaDescription: "Invisible teeth straightening by Dr. Anand Garabadu, Odisha's first Invisalign-certified specialist, at Dentica Bhubaneswar. Clear aligners since 2017. Book today.",
+    metaTitle: "Invisalign Clear Aligners Bhubaneswar | Prof.(Dr) Anand Garabadu | Dentica",
+    metaDescription: "Invisible teeth straightening by Prof.(Dr) Anand Garabadu, Odisha's first Invisalign-certified specialist, at Dentica Bhubaneswar. Clear aligners since 2017. Book today.",
     jsonLdName: "Clear Aligner Orthodontic Treatment",
   },
   {
