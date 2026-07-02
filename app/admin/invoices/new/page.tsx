@@ -1,5 +1,5 @@
 "use client";
-export const dynamic = "force-dynamic";
+import { Suspense } from "react";
 import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import Link from "next/link";
 interface Patient { id: string; patient_id: string; name: string; phone: string; }
 interface LineItem { description: string; qty: number; rate: number; amount: number; }
 
-export default function NewInvoicePage() {
+function NewInvoiceForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -153,7 +153,6 @@ export default function NewInvoicePage() {
             + Add Line Item
           </button>
 
-          {/* Totals */}
           <div style={{ marginTop: 24, display: "flex", justifyContent: "flex-end" }}>
             <div style={{ width: 280 }}>
               <div style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid var(--gray-100)", fontSize: ".9rem" }}>
@@ -172,7 +171,6 @@ export default function NewInvoicePage() {
           </div>
         </div>
 
-        {/* Notes */}
         <div style={{ background: "#fff", borderRadius: "var(--radius)", padding: 24, boxShadow: "var(--shadow-sm)", marginBottom: 24 }}>
           <label className="form-label">Notes (optional)</label>
           <textarea className="form-control" value={notes} onChange={e => setNotes(e.target.value)} rows={2} placeholder="Payment due date, follow-up instructions, etc." />
@@ -184,5 +182,13 @@ export default function NewInvoicePage() {
         </div>
       </form>
     </div>
+  );
+}
+
+export default function NewInvoicePage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40, textAlign: "center", color: "var(--gray-400)" }}>Loading…</div>}>
+      <NewInvoiceForm />
+    </Suspense>
   );
 }
